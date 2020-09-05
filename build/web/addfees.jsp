@@ -21,7 +21,7 @@
     <body>
         <h1>Add New Fees Record</h1>
         <form action="ControllerServlet" method="get">
-            <input type="text" name="stid" value="<%=request.getParameter("stid") %>">
+            <input type="hidden" name="stid" value="<%=request.getParameter("stid") %>">
             <input type="text" name="month" placeholder="Month" >
             <br>
             <input type="number" name="amount" placeholder="Paid Amount">
