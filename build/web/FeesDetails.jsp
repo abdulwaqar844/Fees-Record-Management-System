@@ -31,13 +31,13 @@
             <th>Fees Month</th>
             <th>Fees Amount</th>
             <th>Paid Date</th>
-            
-            
+            <td>Delete</td>
+            <td>Update</td>
             </tr>
               <% 
                   ArrayList feeslist =(ArrayList)request.getAttribute("list");
                  FeesBean fees = new FeesBean();
-                 String sttid=request.getParameter("id");
+                 String sttid=request.getParameter("stid");
                 for(int i=0; i<feeslist.size();i++){
                 fees=(FeesBean)feeslist.get(i);              
                 %>
@@ -45,6 +45,8 @@
                 <td><%=fees.getMonth() %></td>
                 <td><%=fees.getAmount()%></td>
                 <td><%=fees.getPaiddate()%></td>
+                 <td><a href="ControllerServlet?action=deletefees&id=<%=fees.getId() %>">Delete</a></td>
+                 <td><a href="ControllerServlet?action=updatefees&id=<%=fees.getId() %>">Update</a></td>
                 
 
             </tr>
@@ -56,7 +58,7 @@
             
         </table>
                 <br>
-                                <a href="addfees.jsp?stid=<%=sttid%>" >Add Fees Record</a>    
+                                <a href="addfees.jsp?stid=<%=fees.getStid() %>" >Add Fees Record</a>    
 
     </body>
 </html>

@@ -46,7 +46,7 @@ public class ControllerServlet extends HttpServlet {
                 rs.forward(request , response);
                 break;
             case "delete":
-              int id=Integer.parseInt(request.getParameter("id"));
+              int id=Integer.parseInt(request.getParameter("stid"));
                 boolean status= studentdao.deleterecord(id);
                  ArrayList studentlist1 = studentdao.retriverecords();
                 request.setAttribute("list", studentlist1);
@@ -54,7 +54,7 @@ public class ControllerServlet extends HttpServlet {
                 rs.forward(request , response);
                 break;
             case "update":
-                int id2=Integer.parseInt(request.getParameter("id"));
+                int id2=Integer.parseInt(request.getParameter("stid"));
                 StudentBean sBean=studentdao.getsingle(id2);
                 request.setAttribute("student", sBean);
                 rs=request.getRequestDispatcher("updatestudent.jsp");
@@ -78,7 +78,7 @@ public class ControllerServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
                 break;
             case "feesdetail":
-                int sid=Integer.parseInt(request.getParameter("id"));
+                int sid=Integer.parseInt(request.getParameter("stid"));
                 ArrayList fees = feesdao.feesrecord(sid);
                 request.setAttribute("list", fees);
                 rs= request.getRequestDispatcher("FeesDetails.jsp");
@@ -96,8 +96,21 @@ public class ControllerServlet extends HttpServlet {
                 feesbean.setStid(stid);
                 feesdao.addfee(feesbean);
                 response.sendRedirect("index.jsp");
+                        /*
+                int stuid=Integer.parseInt(request.getParameter("stid"));
+                ArrayList fee = feesdao.feesrecord(stuid);
+                request.setAttribute("list", fee);
+                rs= request.getRequestDispatcher("FeesDetails.jsp");
+                rs.forward(request , response);*/         
                 break;
-        
+            
+               case "deletefees":
+                int studentid=Integer.parseInt(request.getParameter("id"));
+                boolean feesstatus= feesdao.deleterecord(studentid);
+                response.sendRedirect("index.jsp");
+                break;
+
+
         }
     }
      @Override

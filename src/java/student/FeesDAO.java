@@ -39,11 +39,13 @@ public class FeesDAO {
             int amount=rs.getInt("amount");            
             Date paiddate = rs.getDate("paiddate");
             String stid=rs.getString("stid");
+            String fid=rs.getString("id");
+            fees.setId(Integer.parseInt(fid));
             fees.setStid(Integer.parseInt(stid));
             fees.setMonth(month);
             fees.setAmount(amount);
             fees.setPaiddate(paiddate);
-             slist.add(fees);
+            slist.add(fees);
         }
         return slist;
  }
@@ -58,6 +60,15 @@ public class FeesDAO {
  
  }
  
+    public boolean deleterecord(int feesid) throws SQLException{
+    boolean status= false;
+    String sql="DELETE FROM `feesdetails` WHERE id=?";
+    PreparedStatement ps=con.prepareStatement(sql);
+    ps.setInt(1, feesid);
+    ps.executeUpdate();
+    status=true;
+    return status;
+    }
  
  
  

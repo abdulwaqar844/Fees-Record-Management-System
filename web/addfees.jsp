@@ -9,6 +9,9 @@
             input{
                 alignment-adjust: central;
                 font-size: 28px;
+                width: auto;
+                padding: 10px 10px;
+                
             }
             body{
                 color: blue;

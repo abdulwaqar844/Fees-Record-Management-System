@@ -17,14 +17,9 @@
                 color: goldenrod;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 20px;
-                
-                
-                
-            }
-            
-            
-        </style>
+                font-size: 20px;        
+                }
+           </style>
     </head>
     <body>
         <h1>Record of Students</h1>
@@ -50,9 +45,9 @@
                 <td><%=student.getFname()%></td>
                 <td><%=student.getRollno()%></td>
                 <td><%=student.getSclass()%></td>
-                <td><a href="ControllerServlet?action=delete&id=<%=student.getId() %>">Delete</a></td>
-                <td><a href="ControllerServlet?action=update&id=<%=student.getId() %>">Update</a></td>
-                <td><a href="ControllerServlet?action=feesdetail&id=<%=student.getId() %>">Fees Details</a></td>
+                <td><a href="ControllerServlet?action=delete&stid=<%=student.getId() %>">Delete</a></td>
+                <td><a href="ControllerServlet?action=update&stid=<%=student.getId() %>">Update</a></td>
+                <td><a href="ControllerServlet?action=feesdetail&stid=<%=student.getId() %>">Fees Details</a></td>
 
 
             </tr>
